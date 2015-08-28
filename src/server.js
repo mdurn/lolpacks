@@ -7,6 +7,7 @@ import path from 'path';
 import express from 'express';
 import ReactDOM from 'react-dom/server';
 import router from './router';
+import models from './models';
 
 const server = global.server = express();
 
