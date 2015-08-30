@@ -167,9 +167,7 @@ gulp.task('sync', ['serve'], cb => {
 // Deploy via Git
 gulp.task('deploy', cb => {
   const push = require('git-push');
-  const remote = argv.production ?
-    'https://github.com/{user}/{repo}.git' :
-    'https://github.com/{user}/{repo}-test.git';
+  const remote = 'git@heroku.com:lolpacks.git';
   push('./build', remote, cb);
 });
 
