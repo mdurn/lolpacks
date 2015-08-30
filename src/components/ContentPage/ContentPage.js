@@ -22,10 +22,13 @@ class ContentPage {
     return (
       <div className="ContentPage">
         <div className="ContentPage-container">
-          {
-            this.props.path === '/' ? null : <h1>{this.props.title}</h1>
-          }
-          <div dangerouslySetInnerHTML={{__html: this.props.content || ''}} />
+          <div className="ContentPage-content">
+            {
+              this.props.path === '/' ? null : <h1>{this.props.title}</h1>
+            }
+            
+            { this.props.children }
+          </div>
         </div>
       </div>
     );

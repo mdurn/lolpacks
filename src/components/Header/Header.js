@@ -19,7 +19,7 @@ class Header {
           </a>
           <Navigation className="Header-nav" />
           <div className="Header-banner">
-            <h1 className="Header-bannerTitle">LolPacks</h1>
+            <h1 className="Header-bannerTitle">LoLPacks</h1>
             <p className="Header-bannerDesc">Downloadable League of Legends Item Sets</p>
           </div>
         </div>

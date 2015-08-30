@@ -19,7 +19,7 @@ class App {
 
   render() {
     return !this.props.error ? (
-      <div>
+      <div className="App-container">
         <Header />
         {this.props.children}
         <Footer />

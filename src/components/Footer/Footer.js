@@ -18,14 +18,10 @@ class Footer {
   };
 
   render() {
-    // This is just an example how one can render CSS
-    let { width, height } = this.props.viewport;
-    this.renderCss(`.Footer-viewport:after {content:' ${width}x${height}';}`);
-
     return (
       <div className="Footer">
         <div className="Footer-container">
-          <span className="Footer-text">Built for Riot Api Challenge 2015</span>
+          <span className="Footer-text">Built for Riot Api Challenge, August 2015</span>
         </div>
       </div>
     );

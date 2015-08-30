@@ -19,6 +19,12 @@ server.use(express.static(path.join(__dirname, 'public')));
 // -----------------------------------------------------------------------------
 server.use('/api/content', require('./api/content'));
 
+server.get('/api/champions.json', (req, res) => {
+  models.Champion.find().sort({name: 1}).exec((err, docs) => {
+    res.json(docs);
+  });
+});
+
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------

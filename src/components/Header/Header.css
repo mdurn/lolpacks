@@ -3,12 +3,12 @@
 @import '../variables.css';
 
 :root {
-  --brand-color: #61dafb;
+  --brand-color: #B70102;
 }
 
 .Header {
-  background: #373277;
-  color: #fff;
+  background: #071323;
+  color: #B70102;
 }
 
 .Header-container {
@@ -46,7 +46,7 @@
 
 .Header-bannerDesc {
   padding: 0;
-  color: rgba(255, 255, 255, .5);
+  color: rgba(179, 72, 2, .8);
   font-size: 1.25em;
   margin: 0;
 }
