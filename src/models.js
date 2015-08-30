@@ -83,8 +83,23 @@ db.once('open', function() {
   models.ChampionGuide = mongoose.model('ChampionGuide', ChampionGuideSchema);
   models.ItemSet = mongoose.model('ItemSet', ItemSetSchema);
 
-  //riotDataLoader.loadChampions().then(lolproDataLoader.updateChampions)
-  //riotDataLoader.loadItems();
+  if (process.env.REFRESH_MODELS === 'true') {
+    riotDataLoader.loadChampions().
+      then(lolproDataLoader.updateChampions()).
+      then(lolproDataLoader.updateChampionGuides()).
+      then(() => {
+        models.ChampionGuide.find((err, guides) => {
+          guides.forEach((guide) => {
+            setTimeout(() => {
+              lolproDataLoader.updateChampionBuild(guide);
+            }, 2000);
+          });
+        });
+      });
+
+    riotDataLoader.loadItems();
+  }
+
   // Create your schemas and models here.
 });
 
