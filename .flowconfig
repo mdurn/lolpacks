@@ -3,5 +3,6 @@
 .*/config
 .*/node_modules
 .*/gulpfile.js
+.*/react/node_modules/.*
 
 [include]
