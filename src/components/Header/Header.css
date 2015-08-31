@@ -9,6 +9,7 @@
 .Header {
   background: #071323;
   color: #B70102;
+  min-width: 740px;
 }
 
 .Header-container {

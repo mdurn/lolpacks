@@ -4,6 +4,7 @@
 
 .ContentPage {
   background-color: #071323;
+  min-height: 100%;
 }
 
 .ContentPage-container {
@@ -20,6 +21,10 @@
 .ContentPage-content {
   margin: 0 10px;
   text-align: center;
+}
+
+.content-title {
+  min-width: 720px;
 }
 
 .jade-content {
