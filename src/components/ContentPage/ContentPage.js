@@ -28,6 +28,8 @@ class ContentPage {
             }
             
             { this.props.children }
+
+            <div className="jade-content" dangerouslySetInnerHTML={{__html: this.props.content || ''}} />
           </div>
         </div>
       </div>
