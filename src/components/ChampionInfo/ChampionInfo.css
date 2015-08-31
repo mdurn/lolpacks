@@ -1,0 +1,23 @@
+.ChampionInfo {
+  background-color: black;
+  display: none;
+}
+
+.ChampionInfo-container {
+  font-size: 11px;
+  min-height: 50px;
+  padding-top: 5px;
+}
+
+.guide-button {
+  margin-left: 5px;
+}
+
+.guide-info {
+  color: white;
+  margin-top: 5px;
+}
+
+.guide-info .guide-source {
+  color: #B34802;
+}

@@ -21,7 +21,7 @@ class Footer {
     return (
       <div className="Footer">
         <div className="Footer-container">
-          <span className="Footer-text">Built for Riot Api Challenge, August 2015</span>
+          <span className="Footer-text">Built for Riot Games Api Challenge 2.0</span>
         </div>
       </div>
     );

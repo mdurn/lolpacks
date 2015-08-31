@@ -25,6 +25,49 @@ server.get('/api/champions.json', (req, res) => {
   });
 });
 
+server.get('/api/championguides.json', (req, res) => {
+  let _guides = [];
+  models.ChampionGuide.find({_championId: req.query.id}).sort({views: -1}).exec((err, guides) => {
+    let guideCount = 0;
+    guides.forEach((guide, i) => {
+      models.ItemSet.find({_championGuideId: guide._id}).sort({index: 1}).exec((err, itemSets) => {
+        let mappedItemSets = { length: itemSets.length };
+        let itemSetCount = 0;
+
+        itemSets.forEach((itemSet, j) => {
+          let key = String(itemSet.index);
+          models.Item.find({ name: { $in: itemSet.itemNames }}, (err, items) => {
+            mappedItemSets[key] = {
+              name: itemSet.name,
+              index: itemSet.index,
+              items: items,
+              length: items.length
+            };
+
+            itemSetCount++;
+            if (itemSetCount === itemSets.length) {
+              _guides.push({
+                _id: guide._id.valueOf(),
+                name: guide.name,
+                lolproUri: guide.lolproUri,
+                views: guide.views,
+                votes: guide.votes,
+                _championId: guide._championId,
+                itemSets: mappedItemSets
+              });
+
+              guideCount++;
+              if (guideCount === guides.length) {
+                res.json(_guides);
+              }
+            }
+          });
+        });
+      });
+    });
+  });
+});
+
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------

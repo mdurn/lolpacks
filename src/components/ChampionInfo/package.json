@@ -1,0 +1,6 @@
+{
+  "name": "ChampionInfo",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ChampionInfo.js"
+}

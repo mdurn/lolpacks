@@ -2,10 +2,9 @@
 
 import React, { PropTypes, Component } from 'react';
 import styles from './IndexPage.css';
+import ChampionRow from '../ChampionRow';
 import withStyles from '../../decorators/withStyles';
 import http from '../../core/http';
-
-//import models from '../../models';
 
 @withStyles(styles)
 class IndexPage extends Component {
@@ -13,7 +12,8 @@ class IndexPage extends Component {
   constructor() {
     super();
     this.state = {
-      champions: <div></div>
+      champions: <div></div>,
+      selectedChampionId: null
     };
   }
 
@@ -23,25 +23,16 @@ class IndexPage extends Component {
       let championRows = [];
       let championRow = [];
       champions.forEach((champion, i) => {
-        championRow.push(
-          <div className="champion">
-            <img key={i} className="champion-image" src={'http://ddragon.leagueoflegends.com/cdn/5.16.1/img/champion/' + champion.image.full}/>
-            <div className="champion-label-container">
-              <div className="champion-label">
-                {champion.name}
-              </div>
-            </div>
-          </div>
-        );
+        let rowIndex = Math.floor(i/6);
+        championRow.push({ champion: champion, rowIndex: rowIndex });
         if (i % 6 == 5) {
-          championRows.push(
-            <div key={'row-' + i/6} className="champion-row">{championRow}</div>
-          );
+          championRows.push(<ChampionRow key={'row-' + rowIndex} index={rowIndex} data={championRow}/>);
           championRow = [];
         }
       });
       if (championRow.length) {
-        championRows.push(<div key={'row-' + (champions.length-1)/6} className="champion-row">{championRow}</div>);  
+        let rowIndex = Math.floor((champions.length-1)/6);
+        championRows.push(<ChampionRow key={'row-' + rowIndex} index={rowIndex} data={championRow}/>);  
       }
 
       self.setState({champions: championRows});

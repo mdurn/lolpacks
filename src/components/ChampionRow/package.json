@@ -1,0 +1,6 @@
+{
+  "name": "ChampionRow",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ChampionRow.js"
+}
