@@ -56,11 +56,6 @@ class ChampionInfo extends Component {
 
       blocks.push({
         'type': itemSet.name,
-        'recMath': false,
-        'minSummonerLevel': -1,
-        'maxSummonerLevel': -1,
-        'showIfSummonerSpell': '',
-        'hideIfSummonerSpell': '',
         'items': items
       });
     }
@@ -70,8 +65,6 @@ class ChampionInfo extends Component {
       'type': 'custom',
       'map': 'any',
       'mode': 'any',
-      'priority': false,
-      'sortrank': 0,
       'blocks': blocks
     };
   }
