@@ -43,7 +43,16 @@
   height: 20px;
 }
 
+.champion-selected .champion-label {
+  background-color: #B34802;
+}
+
+.champion:hover .champion-label {
+  background-color: #B34802;
+}
+
 .champion-label {
+  background-color: #B34802;
   background-color: rgba(179, 72, 2, .6);
   color: white;
   font-family: Arial;
@@ -56,11 +65,4 @@
   position: relative;
   top: 3px;
   width: 80px;
-}
-.champion-selected .champion-label {
-  background-color: #B34802;
-}
-
-.champion:hover .champion-label {
-  background-color: #B34802;
 }
