@@ -43,8 +43,8 @@ class IndexPage extends Component {
     return (
       <div className="IndexPage">
         <div className="IndexPage-container">
-          <h1 className="content-title">Champions</h1>
-          <div>
+          <h1 className="content-title">- Champions -</h1>
+          <div className="IndexPage-champions">
             { this.state.champions }
           </div>
         </div>

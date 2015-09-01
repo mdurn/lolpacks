@@ -24,7 +24,7 @@ class ContentPage {
         <div className="ContentPage-container">
           <div className="ContentPage-content">
             {
-              this.props.path === '/' ? null : <h1 className="content-title">{this.props.title}</h1>
+              this.props.path === '/' ? null : <h1 className="content-title">- {this.props.title} -</h1>
             }
             
             { this.props.children }

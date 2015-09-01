@@ -29,4 +29,12 @@
 
 .jade-content {
   color: black;
+  text-align: left;
+}
+
+.AboutPage-content {
+  background-color: rgba(0, 0, 0, .5);
+  color: #B34802;
+  min-width: 700px;
+  padding: 20px;
 }

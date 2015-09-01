@@ -1,3 +1,11 @@
 .IndexPage-container {
   width: auto;
 }
+
+.IndexPage-champions {
+  margin: 0 auto;
+  width: 720px;
+  -webkit-box-shadow: -9px -8px 5px 0px rgba(0,0,0,0.6);
+  -moz-box-shadow: -9px -8px 5px 0px rgba(0,0,0,0.6);
+  box-shadow: -9px -8px 5px 0px rgba(0,0,0,0.6);
+}
