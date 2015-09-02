@@ -8,3 +8,5 @@ http://lolpacks.com
 - Champion and item data are pulled from the Riot Games API. That data is used along with champion builds from LoLPro in order to build the downloadable json files.
 
 - The tech used to build this are Node.js, Express, MongoDB, and React. ES6 (and some ES7) javascript standards are used, using Babel to compile to ES5.
+
+- LoLPacks isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
