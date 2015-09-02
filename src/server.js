@@ -8,10 +8,27 @@ import express from 'express';
 import ReactDOM from 'react-dom/server';
 import router from './router';
 import models from './models';
+import auth from 'basic-auth';
 
 const server = global.server = express();
 
 server.set('port', (process.env.PORT || 5000));
+
+server.get('*', (req, res, next) => {
+  let credentials = auth(req);
+
+  if (!credentials ||
+    credentials.name !== process.env.BASIC_AUTH_USER ||
+    credentials.pass !== process.env.BASIC_AUTH_PASS) {
+
+    res.statusCode = 401;
+    res.setHeader('WWW-Authenticate', 'Basic realm="LoLPacks"');
+    res.send('Access Denied');
+  } else {
+    next();
+  }
+});
+
 server.use(express.static(path.join(__dirname, 'public')));
 
 //
