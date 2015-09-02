@@ -2,6 +2,8 @@
 
 http://lolpacks.com
 
+To Riot Moderators: The basic auth username and password for the site have been added as an app note in my application page: https://developer.riotgames.com/show-app/132744
+
 
 - LoLPacks is a source for downloading League of Legends item sets derived from known sources. There are many great resources for League of Legends builds around the web, but many don't yet provide downloads for item sets. These item sets can easily be dropped into a summoner's champion config directories without having to build them manually in the game. As a prototype, the item sets available here are derived from LoLPro, a trusted source for quality builds. Just click on a champion, choose a build from the dropdown, and click the download button. The source of the build is linked below the dropdown.
 
