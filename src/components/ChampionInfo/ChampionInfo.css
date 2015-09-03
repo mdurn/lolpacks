@@ -12,6 +12,27 @@
 
 .ChampionInfo-item {
   display: inline-block;
+  height: 48px;
+  position: relative;
+  width: 48px;
+}
+
+.championInfo-itemDesc {
+  background-color: black;
+  border: 2px solid blue;
+  color: white;
+  display: none;
+  font-size: 10px;
+  padding : 8px;
+  position: absolute;
+  width: 150px;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+}
+
+.championInfo-itemDesc .title {
+  color: #D9AE49;
 }
 
 .ChampionInfo-setTitle {

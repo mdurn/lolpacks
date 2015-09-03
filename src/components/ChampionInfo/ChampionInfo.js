@@ -4,6 +4,9 @@ import React, { PropTypes, Component } from 'react';
 import styles from './ChampionInfo.css';
 import withStyles from '../../decorators/withStyles';
 import http from '../../core/http';
+import jquery from 'jquery';
+
+let $ = jquery;
 
 @withStyles(styles)
 class ChampionInfo extends Component {
@@ -69,7 +72,24 @@ class ChampionInfo extends Component {
     };
   }
 
+  _itemMouseOver(e) {
+    let x = (e.pageX - e.target.offsetLeft + 24) + 'px';
+    let y = (e.pageY - e.target.offsetTop + 24) + 'px';
+    $(e.target).find('.championInfo-itemDesc').css({top: y, left: x}).show();
+  }
+
+  _itemMouseOut(e) {
+    $(e.target).find('.championInfo-itemDesc').hide();
+  }
+
+  _itemMouseMove(e) {
+    let x = (e.pageX - e.target.offsetLeft + 24) + 'px';
+    let y = (e.pageY - e.target.offsetTop + 24) + 'px';
+    $(e.target).find('.championInfo-itemDesc').css({top: y, left: x});
+  }
+
   _renderChampionGuides() {
+    let self = this;
     let guides = this.state.guides;
     guides = guides.sort((a, b) => { b.views - a.views; });
     let options = guides.map((guide, i) => {
@@ -90,7 +110,12 @@ class ChampionInfo extends Component {
         let image = item.image;
         let bgimage = 'url(http://ddragon.leagueoflegends.com/cdn/5.16.1/img/sprite/' + image.sprite + ') ' + -image.x + 'px ' + -image.y + 'px';
         itemsHtml.push(
-          <div key={key} className="ChampionInfo-item" style={{width: image.w, height: image.h, background: bgimage}}></div>
+          <div key={key} className="ChampionInfo-item" style={{background: bgimage}} onMouseOver={self._itemMouseOver} onMouseOut={self._itemMouseOut} onMouseMove={self._itemMouseMove}>
+            <div className="championInfo-itemDesc">
+              <p className="title">{item.name}</p>
+              <div dangerouslySetInnerHTML={{__html: item.description}}></div>
+            </div>
+          </div>
         );
       });
 
