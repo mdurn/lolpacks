@@ -5,8 +5,22 @@
 
 .ChampionInfo-container {
   font-size: 11px;
-  min-height: 50px;
+  min-height: 200px;
   padding-top: 5px;
+}
+
+
+.ChampionInfo-item {
+  display: inline-block;
+}
+
+.ChampionInfo-setTitle {
+  color: #D9AE49;
+  font-size: 12px;
+}
+
+.ChampionInfo-itemSetContainer {
+  padding: 5px;
 }
 
 .guide-button {
@@ -17,6 +31,10 @@
 .guide-info {
   color: white;
   margin-top: 5px;
+}
+
+.guide-sets {
+  padding: 20px 10px;
 }
 
 .guide-info .guide-source {

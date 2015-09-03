@@ -17,7 +17,7 @@ class ChampionInfo extends Component {
     super();
     this.state = {
       guides: [],
-      selectedGuide: {},
+      selectedGuide: { length: 0 },
       buildJson: {}
     };
   }
@@ -70,22 +70,49 @@ class ChampionInfo extends Component {
   }
 
   _renderChampionGuides() {
-    let options = [];
     let guides = this.state.guides;
-    guides.forEach((guide, i) => {
-      options.push(
-        <option key={i} value={guide._id}>{guide.name}</option>
-      );
+    guides = guides.sort((a, b) => { b.views - a.views; });
+    let options = guides.map((guide, i) => {
+      return <option key={i} value={guide._id}>{guide.name}</option>
     });
+
+    let selectedGuide = this.state.selectedGuide;
+    let itemSetsHtml = [];
+
+    let numItemSets = selectedGuide.itemSets ? selectedGuide.itemSets.length : 0;
+
+    for (let i = 0; i < numItemSets; i++) {
+      let itemSet = selectedGuide.itemSets[i];
+      let itemsHtml = [];
+
+      itemSet.items.forEach((item, j) => {
+        let key = i + '-' + j;
+        let image = item.image;
+        let bgimage = 'url(http://ddragon.leagueoflegends.com/cdn/5.16.1/img/sprite/' + image.sprite + ') ' + -image.x + 'px ' + -image.y + 'px';
+        itemsHtml.push(
+          <div key={key} className="ChampionInfo-item" style={{width: image.w, height: image.h, background: bgimage}}></div>
+        );
+      });
+
+      itemSetsHtml.push(
+        <div key={i} className="ChampionInfo-itemSetContainer">
+          <div className="ChampionInfo-setTitle">{itemSet.name}</div>
+          <div>{itemsHtml}</div>
+        </div>
+      );
+    }
 
     return (
       <div>
-        <select value={this.state.selectedGuide._id} onChange={this._selectedGuideChanged.bind(this)}>
+        <select value={selectedGuide._id} onChange={this._selectedGuideChanged.bind(this)}>
           {options}
         </select>
-        <a href={'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.state.buildJson))} download={this.state.selectedGuide.name + '.json'}><button className="guide-button" type="button">Download Build</button></a>
+        <a href={'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.state.buildJson))} download={selectedGuide.name + '.json'}><button className="guide-button" type="button">Download Build</button></a>
         <div className="guide-info">
-          Source: <a href={this.state.selectedGuide.lolproUri} className="guide-source">{this.state.selectedGuide.lolproUri}</a>
+          Source: <a href={selectedGuide.lolproUri} className="guide-source">{selectedGuide.lolproUri}</a>
+        </div>
+        <div className="guide-sets">
+          {itemSetsHtml}
         </div>
       </div>
     );
