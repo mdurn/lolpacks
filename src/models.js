@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 import riotDataLoader from './utils/riotDataLoader';
 import lolproDataLoader from './utils/lolproDataLoader';
+import spriteCreator from './utils/SpriteCreator';
 
 const db = mongoose.connection;
 var models = {};
@@ -101,6 +102,10 @@ db.once('open', function() {
           delayedUpdate();
         });
       });
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    spriteCreator.createChampionSprite();
   }
 
   // Create your schemas and models here.

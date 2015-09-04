@@ -4,7 +4,10 @@
   width: 120px;
 }
 
-.champion img {
+.champion-image {
+  background-image: url(/champions.png);
+  width: 120px;
+  height: 120px;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -17,7 +20,7 @@
   -ms-filter: brightness(0.75) saturate(100%);
 }
 
-.champion:hover img {
+.champion:hover .champion-image {
   filter: brightness(1.2) saturate(150%);
   -webkit-filter: brightness(1.2) saturate(150%);
   -moz-filter: brightness(1.2) saturate(150%);
@@ -25,7 +28,7 @@
   -ms-filter: brightness(1.2) saturate(150%);
 }
 
-.champion-selected img {
+.champion-selected .champion-image {
   filter: brightness(1.2) saturate(150%);
   -webkit-filter: brightness(1.2) saturate(150%);
   -moz-filter: brightness(1.2) saturate(150%);
