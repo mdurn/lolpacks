@@ -32,7 +32,7 @@ let spriteCreator = {
     _storeChampionImages().then(() => {
       sprite.sprite('champions', {path: tmpDir}, function(err, championSprite) {
         let spriteFilePath = `${tmpDir}/${championSprite.name}-${championSprite.shortsum()}.png`;
-        fs.createReadStream(spriteFilePath).pipe(fs.createWriteStream(`${publicPath}/champions.png`));
+        fs.rename(spriteFilePath, `${publicPath}/champions.png`);
 
         championSprite.images.forEach((image) => {
           models.Champion.findOne({key: image.name}, (err, champion) => {
