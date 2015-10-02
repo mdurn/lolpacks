@@ -9,7 +9,6 @@
 }
 
 .champion-image {
-  background-image: url(/champions.png);
   width: 120px;
   height: 120px;
   -webkit-transition: all 1s ease;
