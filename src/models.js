@@ -104,7 +104,7 @@ db.once('open', function() {
       });
   }
 
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.REFRESH_SPRITES === 'true') {
     spriteCreator.createChampionSprite();
   }
 
