@@ -1,6 +1,7 @@
 .ChampionInfo {
   background-color: black;
   display: none;
+  text-align: center;
 }
 
 .ChampionInfo-container {

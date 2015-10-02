@@ -20,11 +20,11 @@
 
 .ContentPage-content {
   margin: 0 10px;
-  text-align: center;
 }
 
 .content-title {
   min-width: 720px;
+  text-align: center;
 }
 
 .jade-content {

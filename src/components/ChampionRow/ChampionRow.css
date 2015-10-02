@@ -1,3 +1,7 @@
+.champion-row {
+  background-color: black;
+}
+
 .champion {
   cursor: pointer;
   display: inline-block;
@@ -39,6 +43,7 @@
 .champion-label-container {
   background-color: black;
   height: 20px;
+  text-align: center;
 }
 
 .champion-selected .champion-label {

@@ -17,9 +17,9 @@ let _storeChampionImages = () => {
       let count = 0;
       champions.forEach((champion) => {
         let file = fs.createWriteStream(`${tmpDir}/champions/${champion.key}.png`);
-        let request = http.get('http://ddragon.leagueoflegends.com/cdn/5.16.1/img/champion/' + champion.image.full, function(response) {
+        let request = http.get('http://ddragon.leagueoflegends.com/cdn/5.19.1/img/champion/' + champion.image.full, function(response) {
           response.pipe(file);
-          if (++count == champions.length) { resolve(); }
+          if (++count === champions.length) { resolve(); }
         });
       });
     });
