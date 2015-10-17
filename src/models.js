@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 import riotDataLoader from './utils/riotDataLoader';
 import lolproDataLoader from './utils/lolproDataLoader';
-import spriteCreator from './utils/SpriteCreator';
+import spriteCreator from './utils/spriteCreator';
+import zipCreator from './utils/zipCreator';
 
 const db = mongoose.connection;
 var models = {};
@@ -107,6 +108,8 @@ db.once('open', function() {
   if (process.env.REFRESH_SPRITES === 'true') {
     spriteCreator.createChampionSprite();
   }
+
+  zipCreator.createBuildsZip();
 
   // Create your schemas and models here.
 });
