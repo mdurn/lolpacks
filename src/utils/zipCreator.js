@@ -27,6 +27,7 @@ let zipCreator = {
               title: guide.name,
               type: 'custom',
               map: 'any',
+              mode: 'any',
               blocks: []
             };
 
