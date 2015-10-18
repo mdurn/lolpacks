@@ -67,8 +67,9 @@ let lolproScraper = {
 
         let itemSets = [];
 
-        let h2Text = '';
-        let h3Text = '';
+        let h2Text = null;
+        let h3Text = null;
+        let h4Text = null;
         let isNewItemSet = true;
 
         for (let i = 0; i < buildEls.length; i++) {
@@ -76,14 +77,19 @@ let lolproScraper = {
           let text = parser(buildEls[key]).text();
           if (buildEls[key].name === 'h2') {
             h2Text = text;
-            h3Text = '';
+            h3Text = null;
+            h4Text = null;
             isNewItemSet = true;
           } else if (buildEls[key].name === 'h3') {
             h3Text = text;
+            h4Text = null;
+            isNewItemSet = true;
+          } else if (buildEls[key].name === 'h4') {
+            h4Text = text;
             isNewItemSet = true;
           } else {
             if (isNewItemSet) {
-              let name =  (h2Text && h3Text) ? `${h2Text} - ${h3Text}` : `${h2Text}${h3Text}`;
+              let name = [h2Text, h3Text, h4Text].filter((val) => { return val; }).join(' - ');
               itemSets.push({
                 name: name.trim(),
                 itemNames: [_translateItem(text)]
