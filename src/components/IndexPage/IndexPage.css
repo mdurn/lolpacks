@@ -9,3 +9,15 @@
   -moz-box-shadow: -9px -8px 5px 0px rgba(0,0,0,0.6);
   box-shadow: -9px -8px 5px 0px rgba(0,0,0,0.6);
 }
+
+.IndexPage-allchampions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.IndexPage-allchampions-button {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: black;
+}

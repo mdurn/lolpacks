@@ -69,10 +69,6 @@ server.get('/api/championguides.json', (req, res) => {
   });
 });
 
-server.get('/championguides.zip', (req, res) => {
-
-});
-
 //
 // Register server-side rendering middleware
 // -----------------------------------------------------------------------------

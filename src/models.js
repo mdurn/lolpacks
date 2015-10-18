@@ -109,7 +109,9 @@ db.once('open', function() {
     spriteCreator.createChampionSprite();
   }
 
-  zipCreator.createBuildsZip();
+  if (process.env.REFRESH_ZIPS === 'true') {
+    zipCreator.createBuildsZip();
+  }
 
   // Create your schemas and models here.
 });

@@ -43,6 +43,9 @@ class IndexPage extends Component {
     return (
       <div className="IndexPage">
         <div className="IndexPage-container">
+          <div className="IndexPage-allchampions">
+            <a href='/itemsets.zip'><button className="IndexPage-allchampions-button" type="button">Download All Champion Builds</button></a>
+          </div>
           <h1 className="content-title">- Champions -</h1>
           <div className="IndexPage-champions">
             { this.state.champions }
