@@ -11,13 +11,12 @@
 }
 
 .IndexPage-allchampions {
-  margin-top: 20px;
+  min-width: 720px;
+  margin: 14px auto -12px auto;
   text-align: center;
 }
 
 .IndexPage-allchampions-button {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
   color: black;
+  font-size: 12px;
 }
