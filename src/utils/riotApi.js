@@ -1,7 +1,10 @@
 import request from 'request';
 const API_KEY = process.env.RIOT_API_KEY;
+const CDN_VERSION = process.env.RIOT_CDN_VERSION;
 
 let riotApi = {
+  CDN_BASE: 'http://ddragon.leagueoflegends.com/cdn/' + CDN_VERSION + '/img',
+
   items: (cb) => {
     let base = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/item';
     let params = `?api_key=${API_KEY}&itemListData=from,gold,image`;

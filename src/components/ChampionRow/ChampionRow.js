@@ -40,7 +40,7 @@ class ChampionRow extends Component {
     let self = this;
     let championRow = [];
     this.props.data.forEach((col, i) => {
-      let bgimage = 'url(http://ddragon.leagueoflegends.com/cdn/5.19.1/img/champion/' + col.champion.image.full + ')';
+      let bgimage = 'url(' + window.globals.RIOT_CDN_BASE + '/champion/' + col.champion.image.full + ')';
       championRow.push(
         <div key={i} className="champion" onClick={self._championClick.bind(this, col.champion._id)}>
           <div className="champion-image" style={{backgroundImage: bgimage}}></div>

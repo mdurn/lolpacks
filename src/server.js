@@ -8,6 +8,7 @@ import express from 'express';
 import ReactDOM from 'react-dom/server';
 import router from './router';
 import models from './models';
+import globals from './constants/globals';
 
 const server = global.server = express();
 
@@ -79,7 +80,7 @@ const template = _.template(fs.readFileSync(templateFile, 'utf8'));
 server.get('*', async (req, res, next) => {
   try {
     let statusCode = 200;
-    const data = { title: '', description: '', css: '', body: '' };
+    const data = { title: '', description: '', css: '', body: '', globals: globals };
     const css = [];
     const context = {
       onInsertCss: value => css.push(value),

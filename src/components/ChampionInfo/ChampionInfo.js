@@ -108,7 +108,7 @@ class ChampionInfo extends Component {
       itemSet.items.forEach((item, j) => {
         let key = i + '-' + j;
         let image = item.image;
-        let bgimage = 'url(http://ddragon.leagueoflegends.com/cdn/5.19.1/img/sprite/' + image.sprite + ') ' + -image.x + 'px ' + -image.y + 'px';
+        let bgimage = 'url(' + window.globals.RIOT_CDN_BASE + '/sprite/' + image.sprite + ') ' + -image.x + 'px ' + -image.y + 'px';
         itemsHtml.push(
           <div key={key} className="ChampionInfo-item" style={{background: bgimage}} onMouseOver={self._itemMouseOver} onMouseOut={self._itemMouseOut} onMouseMove={self._itemMouseMove}>
             <div className="championInfo-itemDesc">

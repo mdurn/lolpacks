@@ -1,9 +1,10 @@
 import mkdirp from 'mkdirp';
 import http from 'http';
 import fs from 'fs';
-import models from '../models';
 import sprite from 'node-sprite';
 import path from 'path';
+import models from '../models';
+import globals from '../constants/globals';
 
 let appRoot = path.resolve(__dirname);
 let publicPath = `${appRoot}/public`;
@@ -17,7 +18,7 @@ let _storeChampionImages = () => {
       let count = 0;
       champions.forEach((champion) => {
         let file = fs.createWriteStream(`${tmpDir}/champions/${champion.key}.png`);
-        let request = http.get('http://ddragon.leagueoflegends.com/cdn/5.19.1/img/champion/' + champion.image.full, function(response) {
+        let request = http.get(globals.RIOT_CDN_BASE + '/champion/' + champion.image.full, function(response) {
           response.pipe(file);
           if (++count === champions.length) { resolve(); }
         });
